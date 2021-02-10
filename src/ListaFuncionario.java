@@ -7,6 +7,10 @@ public class ListaFuncionario {
 	private Listnode tail;
 	private int size = 0;
 
+	public Listnode getHead() {
+		return head;
+	}
+	
 	private class Listnode {
 
 		private Funcionario funcionario = new Funcionario();
@@ -82,7 +86,7 @@ public class ListaFuncionario {
 					if (contador == 1)
 						System.out.println("Saída:" + saidaHora);
 					else
-						System.out.println("Entrada:" + entradaHora+ "\n" + data);
+						System.out.println("Entrada:" + entradaHora + "\nData:" + data);
 				}
 
 				private String verificarData() {
@@ -183,8 +187,9 @@ public class ListaFuncionario {
 			}
 			tail = novoFuncionario;
 			size++;
-		} else
+		} else {
 			System.out.println("Matrícula já cadastrada, por favor, tente novamente");
+		}
 	}
 
 	public boolean verificarMatricula(String matricula) {
@@ -238,9 +243,8 @@ public class ListaFuncionario {
 	}
 
 	public boolean verificarLista() {
-		if (head == null) {
+		if (head == null)
 			return true;
-		}
 		return false;
 	}
 

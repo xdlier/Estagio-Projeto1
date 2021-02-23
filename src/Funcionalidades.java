@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class TelaInicial {
-	
-	private ListaFuncionario funcionario = new ListaFuncionario();
+public class Funcionalidades {
+
+	private List<Funcionario> funcionarios = new ArrayList<>();
 	Scanner read = new Scanner(System.in);
-	
+
 	public void telaInicial() {
 
 		System.out.println("Que atividade gostaria de realizar:\nA) Cadastrar funcionario\n"
@@ -22,7 +24,7 @@ public class TelaInicial {
 			telaInicial();
 		}
 	}
-	
+
 	public void cadastrarFuncionario() {
 		String nome, matricula, cargo;
 		System.out.println("Informe o nome:");
@@ -31,29 +33,53 @@ public class TelaInicial {
 		matricula = read.next();
 		System.out.println("Informe o cargo:");
 		cargo = read.next();
-		funcionario.cadastrar(nome, matricula, cargo);
-		
+		funcionarios.add(new Funcionario(nome, matricula, cargo));
+
 		telaInicial();
 	}
-	
+
 	public void baterPontoFuncionario() {
-		if (funcionario.verificarLista()) {
+		
+		if (funcionarios.isEmpty()) {
 			System.out.println("Não há funcionários cadastrados.");
-		} else {
-			System.out.println("Informe o número de matricula:");
-			funcionario.baterPonto(read.next());
+			telaInicial();
 		}
 		
-		telaInicial();
-	}
-	
-	public void consultaPontosFuncionario() {
-		if (funcionario.verificarLista()) {
-			System.out.println("Não há funcionários cadastrados.");
-		} else {
-			System.out.println("Informe o número de matrícula:");
-			funcionario.historicoPonto(read.next());
+		System.out.println("Informe o número de matricula:");
+		
+		int i = indexFuncionario(read.next());
+		if (i < 0) {
+			System.out.println("Matricula incorreta, tente novamente");
+			baterPontoFuncionario();
 		}
+		funcionarios.get(i).batendoPonto();
 		telaInicial();
+
 	}
+
+	public void consultaPontosFuncionario() {
+		if (funcionarios.isEmpty()) {
+			System.out.println("Não há funcionários cadastrados.");
+			telaInicial();
+		}
+		System.out.println("Informe o número de matrícula:");
+		
+		int i = indexFuncionario(read.next());
+		if (i < 0) {
+			System.out.println("Matricula incorreta, tente novamente");
+			consultaPontosFuncionario();
+		}
+		funcionarios.get(i).consultaPontos();
+		telaInicial();
+
+	}
+
+	public int indexFuncionario(String matricula) {
+		for (int i = 0; i < funcionarios.size(); i++) {
+			if (funcionarios.get(i).getMatricula().equals(matricula))
+				return i;
+		}
+		return -1;
+	}
+
 }

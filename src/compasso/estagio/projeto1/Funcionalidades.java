@@ -1,3 +1,4 @@
+package compasso.estagio.projeto1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -39,14 +40,14 @@ public class Funcionalidades {
 	}
 
 	public void baterPontoFuncionario() {
-		
+
 		if (funcionarios.isEmpty()) {
 			System.out.println("Não há funcionários cadastrados.");
 			telaInicial();
 		}
-		
+
 		System.out.println("Informe o número de matricula:");
-		
+
 		int i = indexFuncionario(read.next());
 		if (i < 0) {
 			System.out.println("Matricula incorreta, tente novamente");
@@ -63,7 +64,7 @@ public class Funcionalidades {
 			telaInicial();
 		}
 		System.out.println("Informe o número de matrícula:");
-		
+
 		int i = indexFuncionario(read.next());
 		if (i < 0) {
 			System.out.println("Matricula incorreta, tente novamente");

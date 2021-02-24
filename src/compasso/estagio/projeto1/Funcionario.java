@@ -1,3 +1,4 @@
+package compasso.estagio.projeto1;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,6 @@ public class Funcionario {
 	}
 
 	public void consultaPontos() {
-		System.out.println("Passou");
 		for (int i = pontos.size() - 1; i > pontos.size() - 8; i--) {
 			if(i<0) {
 				System.out.println("Sem mais pontos!");

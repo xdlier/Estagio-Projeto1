@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Cadastrador {
 
-	private HashMap<Integer, Funcionario> funcionarios = new HashMap<Integer, Funcionario>();
-	Scanner read = new Scanner(System.in);
+	static private HashMap<Integer, Funcionario> funcionarios = new HashMap<Integer, Funcionario>();
+	static Scanner read = new Scanner(System.in);
 
-	public HashMap<Integer, Funcionario> cadastrarFuncionario() {
+	public static HashMap<Integer, Funcionario> cadastrarFuncionario() {
 		String nome, matriculaString, cargo;
 		Integer matricula;
 

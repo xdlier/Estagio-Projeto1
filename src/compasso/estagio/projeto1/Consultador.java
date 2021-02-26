@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Consultador {
 
-	Scanner read = new Scanner(System.in);
+	static Scanner read = new Scanner(System.in);
 
-	public void consultaPontosFuncionario(HashMap<Integer, Funcionario> funcionarios) {
+	public static void consultaPontosFuncionario(HashMap<Integer, Funcionario> funcionarios) {
 
 		Funcionario funcionario = new Funcionario();
 		if (funcionarios.isEmpty()) {

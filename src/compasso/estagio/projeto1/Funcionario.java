@@ -1,4 +1,5 @@
 package compasso.estagio.projeto1;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,10 @@ public class Funcionario {
 	private String matricula;
 	private String cargo;
 	private List<Ponto> pontos = new ArrayList<>();
+
+	public Funcionario() {
+		nome = matricula = cargo = null;
+	}
 
 	public Funcionario(String nome, String matricula, String cargo) {
 		try {
@@ -61,13 +66,19 @@ public class Funcionario {
 	}
 
 	public void consultaPontos() {
+		System.out.println("Funcionário: " + nome);
+		System.out.println("Cargo: " + cargo);
 		for (int i = pontos.size() - 1; i > pontos.size() - 8; i--) {
-			if(i<0) {
+			if (i < 0) {
 				System.out.println("Sem mais pontos!");
 				return;
+			} else if (pontos.get(i).saida().equals("00:00:00")) {
+				System.out.println("----------------------\nData: " + pontos.get(i).data() + "\nEntrada: "
+						+ pontos.get(i).entrada() + "\nSem saída registrada\n----------------------\n");
+			} else {
+				System.out.println("----------------------\nData: " + pontos.get(i).data() + "\nEntrada: "
+						+ pontos.get(i).entrada() + "\nSaída: " + pontos.get(i).saida() + "\n----------------------\n");
 			}
-			System.out.println("Data: " + pontos.get(i).data() + "\nEntrada: " + pontos.get(i).entrada() + "\nSaída: "
-					+ pontos.get(i).saida());
 		}
 	}
 

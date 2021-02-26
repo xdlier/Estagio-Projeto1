@@ -1,12 +1,11 @@
 package compasso.estagio.projeto1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class TelaInicial {
 
-	private List<Funcionario> funcionarios = new ArrayList<>();
+	private HashMap<Integer, Funcionario> funcionarios = new HashMap<Integer, Funcionario>();
 	private Cadastrador cadastrador = new Cadastrador();
 	private BatedorDePonto baterPonto = new BatedorDePonto();
 	private Consultador consultador = new Consultador();

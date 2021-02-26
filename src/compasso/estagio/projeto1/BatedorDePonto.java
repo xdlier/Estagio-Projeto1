@@ -1,38 +1,29 @@
 package compasso.estagio.projeto1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class BatedorDePonto {
 
-	private List<Funcionario> funcionarios = new ArrayList<>();
 	Scanner read = new Scanner(System.in);
 
-	public void baterPontoFuncionario(List<Funcionario> funcionarios) {
+	public void baterPontoFuncionario(HashMap<Integer, Funcionario> funcionarios) {
 
-		this.funcionarios = funcionarios;
+		Funcionario funcionario = new Funcionario();
 		if (funcionarios.isEmpty()) {
 			System.out.println("Não há funcionários cadastrados.");
 			return;
 		}
 
 		System.out.println("Informe o número de matricula:");
-
-		int i = indexFuncionario(read.next());
-		if (i < 0) {
+		funcionario = funcionarios.get(read.nextInt());
+		
+		if (funcionario==null) {
 			System.out.println("Matricula incorreta, tente novamente");
 			baterPontoFuncionario(funcionarios);
 			return;
 		}
-		funcionarios.get(i).batendoPonto();
+		funcionario.batendoPonto();
 	}
 
-	public int indexFuncionario(String matricula) {
-		for (int i = 0; i < this.funcionarios.size(); i++) {
-			if (this.funcionarios.get(i).getMatricula().equals(matricula))
-				return i;
-		}
-		return -1;
-	}
 }

@@ -6,9 +6,6 @@ import java.util.Scanner;
 public class TelaInicial {
 
 	private HashMap<Integer, Funcionario> funcionarios = new HashMap<Integer, Funcionario>();
-//	private Cadastrador cadastrador = new Cadastrador();
-//	private BatedorDePonto baterPonto = new BatedorDePonto();
-//	private Consultador consultador = new Consultador();
 	Scanner read = new Scanner(System.in);
 
 	public void telaInicial() {
